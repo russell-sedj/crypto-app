@@ -4,25 +4,32 @@ import { styleApp } from "../style/app.styles";
 
 export function Home() {
   return (
-    <ImageBackground source={backgroundgImage} style={styleApp.image}>
+    <ImageBackground
+      source={backgroundgImage}
+      style={styleApp.image}
+      imageStyle={{ opacity: 0.35 }}
+    >
       <View style={styleApp.container}>
-        <View>
+        {/* Header */}
+        <View style={styleApp.header}>
+          <Text style={styleApp.title}>Cryptos Listing</Text>
           <Text>Moteur de Recherche</Text>
         </View>
 
-        <View>
-          <Text>Cryptos</Text>
+        {/* Body */}
+        <View style={styleApp.body}>
+          <Text style={styleApp.bodyText}>Body</Text>
         </View>
-        <View>
-          <View>
-            <Text>Cryptos</Text>
-          </View>
-          <View>
-            <Text>Mes favoris</Text>
-          </View>
-          <View>
-            <Text>Profil</Text>
-          </View>
+
+        <View style={styleApp.pageTitle}>
+          <Text style={styleApp.pageTitle}>Cryptos</Text>
+        </View>
+
+        {/* Footer en bas */}
+        <View style={styleApp.footer}>
+          <Text style={styleApp.footerItem}>Cryptos</Text>
+          <Text style={styleApp.footerItem}>Mes favoris</Text>
+          <Text style={styleApp.footerItem}>Profil</Text>
         </View>
       </View>
     </ImageBackground>

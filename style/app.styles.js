@@ -3,13 +3,79 @@ import { StyleSheet } from "react-native";
 export const styleApp = StyleSheet.create({
   image: {
     flex: 1,
-    paddingVertical: 70,
-    paddingHorizontal: 100,
   },
+
   container: {
     flex: 1,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
-    borderRadius: 20,
-    padding: 20,
+    paddingTop: 70,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+
+  header: {
+    gap: 10,
+    marginBottom: 14,
+  },
+
+  searchInput: {
+    backgroundColor: "rgba(255,255,255,0.9)",
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.08)",
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#111827",
+  },
+
+  title: {
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#111827",
+  },
+
+  body: {
+    flex: 1,
+    backgroundColor: "rgba(59, 130, 246, 0.18)", // couleur du body
+    borderWidth: 1,
+    borderColor: "rgba(59, 130, 246, 0.45)",
+    borderRadius: 14,
+    padding: 14,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  bodyText: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#0f172a",
+  },
+
+  pageTitle: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: "#111827",
+    backgroundColor: "rgba(223, 169, 23, 0.75)",
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    marginTop: 14,
+    alignItems: "center",
+  },
+
+  footer: {
+    marginTop: 14,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.75)",
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+
+  footerItem: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#111827",
   },
 });
