@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, TextInput } from "react-native";
 import { styleApp } from "../style/app.styles";
-import FontAwesome from "@react-native-vector-icons/fontawesome";
+import { FontAwesome } from "@expo/vector-icons";
 
 export function Search() {
   const [value, setValue] = useState("");

@@ -56,19 +56,31 @@ export const styleApp = StyleSheet.create({
 
   body: {
     flex: 1,
-    backgroundColor: "rgba(59, 130, 246, 0.18)", // couleur du body
+    backgroundColor: "rgba(59, 130, 246, 0.18)",
     borderWidth: 1,
     borderColor: "rgba(59, 130, 246, 0.45)",
     borderRadius: 14,
     padding: 14,
-    justifyContent: "center",
-    alignItems: "center",
   },
 
   bodyText: {
     fontSize: 18,
     fontWeight: "600",
     color: "#0f172a",
+  },
+
+  cryptoList: {
+    width: "100%",
+  },
+  cryptoRow: {
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(15,23,42,0.12)",
+  },
+  cryptoText: {
+    fontSize: 16,
+    color: "#0f172a",
+    fontWeight: "600",
   },
 
   pageTitle: {
