@@ -17,15 +17,35 @@ export const styleApp = StyleSheet.create({
     marginBottom: 14,
   },
 
+  searchContainer: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.95)",
+    borderWidth: 1.5,
+    borderColor: "#2563eb",
+    borderRadius: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginTop: 6,
+    marginBottom: 6,
+    shadowColor: "#2563eb",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
   searchInput: {
-    backgroundColor: "rgba(255,255,255,0.9)",
-    borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.08)",
-    borderRadius: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
+    flex: 1,
     fontSize: 16,
     color: "#111827",
+    paddingVertical: 2,
+    backgroundColor: "transparent",
+  },
+
+  searchIcon: {
+    marginRight: 8,
   },
 
   title: {

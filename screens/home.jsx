@@ -1,6 +1,7 @@
 import { View, Text, ImageBackground } from "react-native";
 import backgroundgImage from "../assets/backgroundgImage.jpg";
 import { styleApp } from "../style/app.styles";
+import { Search } from "../components/search";
 
 export function Home() {
   return (
@@ -13,7 +14,7 @@ export function Home() {
         {/* Header */}
         <View style={styleApp.header}>
           <Text style={styleApp.title}>Cryptos Listing</Text>
-          <Text>Moteur de Recherche</Text>
+          <Search />
         </View>
 
         {/* Body */}
