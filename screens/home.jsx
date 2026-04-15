@@ -2,8 +2,34 @@ import { View, Text, ImageBackground } from "react-native";
 import backgroundgImage from "../assets/backgroundgImage.jpg";
 import { styleApp } from "../style/app.styles";
 import { Search } from "../components/search";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export function Home() {
+  const [cryptos, setCryptos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("https://api.coingecko.com/api/v3/coins/markets", {
+        params: {
+          vs_currency: "usd",
+          order: "market_cap_desc",
+          per_page: 20,
+          page: 1,
+          sparkline: false,
+        },
+      })
+      .then((res) => {
+        setCryptos(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        // gestion d’erreur
+      });
+  }, []);
+
   return (
     <ImageBackground
       source={backgroundgImage}
@@ -19,7 +45,16 @@ export function Home() {
 
         {/* Body */}
         <View style={styleApp.body}>
-          <Text style={styleApp.bodyText}>Body</Text>
+          {loading ? (
+            <Text style={styleApp.bodyText}>Chargement...</Text>
+          ) : (
+            cryptos.map((crypto) => (
+              <Text key={crypto.id} style={styleApp.bodyText}>
+                {crypto.name} ({crypto.symbol.toUpperCase()}) : $
+                {crypto.current_price}
+              </Text>
+            ))
+          )}
         </View>
 
         <View style={styleApp.pageTitle}>
