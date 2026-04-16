@@ -9,6 +9,7 @@ export function Home() {
   const [cryptos, setCryptos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchCryptos = async () => {
@@ -46,6 +47,19 @@ export function Home() {
     fetchCryptos();
   }, []);
 
+  const filteredCryptos = cryptos.filter((crypto) => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      return true;
+    }
+
+    const name = crypto.name?.toLowerCase() ?? "";
+    const symbol = crypto.symbol?.toLowerCase() ?? "";
+
+    return name.includes(query) || symbol.includes(query);
+  });
+
   return (
     <ImageBackground
       source={backgroundgImage}
@@ -55,18 +69,18 @@ export function Home() {
       <View style={styleApp.container}>
         <View style={styleApp.header}>
           <Text style={styleApp.title}>Cryptos Listing</Text>
-          <Search />
+          <Search value={searchQuery} onChangeText={setSearchQuery} />
         </View>
         <View style={styleApp.body}>
           {loading ? (
             <Text style={styleApp.bodyText}>Chargement...</Text>
           ) : error ? (
             <Text style={styleApp.bodyText}>{error}</Text>
-          ) : cryptos.length === 0 ? (
+          ) : filteredCryptos.length === 0 ? (
             <Text style={styleApp.bodyText}>Aucune crypto trouvee.</Text>
           ) : (
             <FlatList
-              data={cryptos}
+              data={filteredCryptos}
               keyExtractor={(item) => item.id}
               style={styleApp.cryptoList}
               renderItem={({ item }) => (

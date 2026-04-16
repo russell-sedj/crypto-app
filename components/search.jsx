@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { View, TextInput } from "react-native";
 import { styleApp } from "../style/app.styles";
 import { FontAwesome } from "@expo/vector-icons";
 
-export function Search() {
-  const [value, setValue] = useState("");
-
+export function Search({ value, onChangeText }) {
   return (
     <View style={styleApp.searchContainer}>
       <FontAwesome
@@ -16,7 +13,7 @@ export function Search() {
       />
       <TextInput
         value={value}
-        onChangeText={setValue}
+        onChangeText={onChangeText}
         placeholder="Rechercher une crypto"
         placeholderTextColor="#6b7280"
         style={styleApp.searchInput}
